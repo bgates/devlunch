@@ -8,10 +8,9 @@ private
     begin
       slack_request.verify!
     rescue
-      logger.info slack_request.inspect
       render json: {
         response_type: "ephemeral",
-        text: "Sorry, that didn't work. Please try again. #{slack_request.inspect}"
+        text: "Sorry, that didn't work. Please try again. #{request.headers.inspect}"
       }
     end
   end
