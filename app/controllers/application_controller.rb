@@ -11,11 +11,11 @@ private
 
         digest = OpenSSL::Digest::SHA256.new
         signature_basestring = [slack_request.version, slack_request.timestamp, slack_request.body].join(':')
-        hex_hash = OpenSSL::HMAC.hexdigest(digest, Slack::Events.config.signing_secret, signature_basestring)
-        computed_signature = [slack_request.version, hex_hash].join('=')
+        #hex_hash = OpenSSL::HMAC.hexdigest(digest, Slack::Events.config.signing_secret, signature_basestring)
+        #computed_signature = [slack_request.version, hex_hash].join('=')
       render json: {
         response_type: "ephemeral",
-        text: "Sorry, that didn't work. Please try again. signature_basestring:#{signature_basestring}, computed_signature:#{computed_signature}, signature: #{slack_request.signature}"
+        text: "Sorry, that didn't work. Please try again. signature_basestring:#{signature_basestring}, #{Slack::Events.config.signing_secret},  #{slack_request.signature}"
       }
     end
   end
