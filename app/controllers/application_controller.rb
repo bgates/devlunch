@@ -1,9 +1,17 @@
 class ApplicationController < ActionController::Base
-  skip_before_action :verify_authenticity_token, if: :json_request?
+  skip_before_action :verify_authenticity_token, if: :slack_request?
 
 private
 
-  def json_request?
-    request.format.json?
+  def slack_request?
+    slack_request = Slack::Events::Request.new(request)
+    begin
+      slack_request.verify!
+    rescue
+      render json: {
+        response_type: "ephemeral",
+        text: "Sorry, that didn't work. Please try again."
+      }
+    end
   end
 end
