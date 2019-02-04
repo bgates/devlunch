@@ -10,7 +10,7 @@ private
     rescue
       render json: {
         response_type: "ephemeral",
-        text: "Sorry, that didn't work. Please try again. #{Slack::Events.config.signing_secret},  #{slack_request.signature}, #{slack_request.timestamp}, #{slack_request.body.read}"
+        text: "Sorry, that didn't work. Please try again. #{Slack::Events.config.signing_secret},  #{slack_request.signature}, #{slack_request.timestamp}, #{slack_request.body}"
       }
     end
   end
