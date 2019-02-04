@@ -10,7 +10,7 @@ private
     rescue
       render json: {
         response_type: "ephemeral",
-        text: "Sorry, that didn't work. Please try again. X-Slack-Signature: #{request.headers['X-Slack-Signature]} XSS: #{request.headers['HTTP_X_SLACK_SIGNATURE']}"
+        text: "Sorry, that didn't work. Please try again. X-Slack-Signature: #{request.headers['X-Slack-Signature']} XSS: #{request.headers['HTTP_X_SLACK_SIGNATURE']}"
       }
     end
   end
