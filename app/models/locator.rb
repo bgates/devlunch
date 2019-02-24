@@ -11,8 +11,10 @@ class Locator
   private 
 
   def self.yelp_request_params(terms)
-    query: { term: term, location: "Orlando, FL" }, 
-    format: :plain, 
-    headers: { Authorization: "Bearer #{YELP_API_KEY}"}
+    {
+      query: { term: term, location: "Orlando, FL" }, 
+      format: :plain, 
+      headers: { Authorization: "Bearer #{YELP_API_KEY}"}
+    }
   end
 end
