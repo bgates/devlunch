@@ -11,7 +11,7 @@ after_action :cors_set_access_control_headers, only: :index
     @invitations = Invitation.all
     respond_to do |format|
       format.html 
-      format.json { render invitations: @invitations }
+      format.json { render json: @invitations }
     end
   end
 
