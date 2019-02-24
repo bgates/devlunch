@@ -25,4 +25,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'pg'
 gem 'omniauth-github'
 gem 'slack-ruby-client', git: 'https://github.com/slack-ruby/slack-ruby-client'
-
+gem 'httparty'
