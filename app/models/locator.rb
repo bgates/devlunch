@@ -10,7 +10,7 @@ class Locator
 
   private 
 
-  def self.yelp_request_params(terms)
+  def self.yelp_request_params(term)
     {
       query: { term: term, location: "Orlando, FL" }, 
       format: :plain, 
