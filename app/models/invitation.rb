@@ -5,7 +5,7 @@ class Invitation < ApplicationRecord
     def create_from_yelp_data(text, user_id)
       parsed_invite = Parser.run(text)
       restaurant = Locator.run(parsed_invite[:place])
-      create(parse_yelp_data(restaurant).merge(when: parsed_invite[:time], user_id: user_id))
+      create(parse_yelp_data(restaurant).merge(when: parsed_invite[:time], slack_user_id: user_id))
     end
 
     def parse_yelp_data(input)
