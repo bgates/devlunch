@@ -3,7 +3,7 @@ before_action :cors_preflight_check, only: :index
 after_action :cors_set_access_control_headers, only: :index
 
   def create
-    Invitation.create_from_yelp_data(params[:text], params[:user_id])
+    Invitation.create_from_yelp_data(params[:text], params[:user_id], params[:team_id])
     render json: { response_type: "in_channel" }
   end
 
