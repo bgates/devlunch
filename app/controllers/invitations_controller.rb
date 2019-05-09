@@ -8,7 +8,7 @@ after_action :cors_set_access_control_headers, only: :index
   end
 
   def index 
-    @invitations = Invitation.all
+    @invitations = Invitation.all.where(when: 1.hour.ago..DateTime::Infinity.new)
     respond_to do |format|
       format.html 
       format.json { render json: @invitations }
