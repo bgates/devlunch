@@ -8,7 +8,7 @@ class Parser
     end
 
     def parse_or_default_time(time_string)
-      time_string ? Time.parse(time_string) : default_time
+      time_string ? Time.zone.parse(time_string) : default_time
     end
 
     def default_time
