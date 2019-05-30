@@ -22,9 +22,11 @@ class Invitation < ApplicationRecord
   end
 
   def as_json(*)
-    super.except("created_at", "updated_at").tap do |hash|
+    super.except("created_at", "updated_at", "user_name").tap do |hash|
       hash["is_today"] = self.when.today?
       hash["time"] = self.when.strftime("%I:%M")
+      hash["link"] = "slack://user?team={#{self.team_id}}&id={#{self.user_id}}"
+      hash["userName"] = self.user_name
     end
   end
 end

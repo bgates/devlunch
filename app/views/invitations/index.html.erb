@@ -11,7 +11,7 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 const invitations = <%= @invitations.to_json.html_safe %>; 
 invitations.forEach(invite => {
   const marker = L.marker([invite.latitude, invite.longitude]).addTo(mymap);
-  marker.bindPopup(`<strong>${invite.time}</strong> - ${invite.where}`)
+  marker.bindPopup(`<strong>${invite.time}</strong> - <a href="${invite.link}">@${invite.userName}</a> is going to ${invite.where}`)
 });
 </script>
 <% end %>
