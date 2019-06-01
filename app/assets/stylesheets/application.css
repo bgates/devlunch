@@ -13,3 +13,6 @@
  *= require_tree .
  *= require_self
  */
+.leaflet-container {
+  font-size: 18px;
+}
