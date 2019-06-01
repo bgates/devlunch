@@ -1,7 +1,6 @@
 <%= content_for :js do %>
 <script>
-const mymap = L.map('map').setView([28.5383, -81.3792], 14);
-
+const mymap = L.map('map').locate({setView: true, maxZoom: 16}); //.setView([28.5383, -81.3792], 14);
 L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
     maxZoom: 18,
@@ -16,12 +15,16 @@ invitations.forEach(invite => {
 });
 </script>
 <% end %>
-<h1>Lunch with Developers</h1>
-<div id="map" style="height:90vh;width:100vw;margin: 0 auto"></div>
-<h2>What</h2>
-<p>The map shows members of the Orlando Developers community who have said where they are having lunch today.</p>
-<h2>Why</h2>
-<p>It would be nice to get to know some devs in a casual environment. Meetups are too big to get to know anyone well, and post-Meetup drinks are too late. With lunch, you can meet people over food, so if you have nothing to say you can fall back on chewing.</p>
-<h2>How</h2>
-<p>Each pin on the map will show the ODev Slack username of a person who's announced availability to meet for lunch today. If you click on a username, Slack will open to a private message between you and that person.</p>
-<p>If you want to get your own pin on the map, log into ODev Slack and use the command `/lunch`.</p>
+<div class="container">
+  <h1>Lunch with Developers</h1>
+  <div id="map"></div>
+  <div>
+    <h2>What</h2>
+    <p>The map shows members of the Orlando Developers community who have said where they are having lunch today.</p>
+    <h2>Why</h2>
+    <p>It would be nice to get to know some devs in a casual environment. Meetups are too big to get to know anyone well, and post-Meetup drinks are too late. With lunch, you can meet people over food, so if you have nothing to say you can fall back on chewing.</p>
+    <h2>How</h2>
+    <p>Each pin on the map will show the ODev Slack username of a person who's announced availability to meet for lunch today. If you click on a username, Slack will open to a private message between you and that person.</p>
+    <p>If you want to get your own pin on the map, log into ODev Slack and use the command `/lunch`.</p>
+  </div>
+</div>
