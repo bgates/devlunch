@@ -12,14 +12,11 @@ invitations.forEach(invite => {
   const marker = L.marker([invite.latitude, invite.longitude]).addTo(mymap);
   marker.bindPopup(`<strong>${invite.time}</strong> - <a href="${invite.link}">@${invite.userName}</a> is going to ${invite.where}`)
 });
-document.getElementById('map').style.height = document.getElementById('map-wrapper').clientHeight + 'px';
 </script>
 <% end %>
 <div class="container">
   <h1>Lunch with Developers</h1>
-  <div id="map-wrapper">
-    <div id="map"></div>
-  </div>
+  <div id="map"></div>
   <div>
     <h2>What</h2>
     <p>The map shows members of the Orlando Developers community who have said where they are having lunch today.</p>
@@ -29,4 +26,5 @@ document.getElementById('map').style.height = document.getElementById('map-wrapp
     <p>Each pin on the map will show the ODev Slack username of a person who's announced availability to meet for lunch today. If you click on a username, Slack will open to a private message between you and that person.</p>
     <p>If you want to get your own pin on the map, log into ODev Slack and use the command `/lunch`.</p>
   </div>
+  <a href="https://github.com/bgates/devlunch"><%= image_tag 'github.png' %></a>
 </div>
