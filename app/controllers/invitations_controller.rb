@@ -4,7 +4,14 @@ after_action :cors_set_access_control_headers, only: :index
 
   def create
     Invitation.create_from_yelp_data(params[:text], params[:user_id], params[:team_id], params[:user_name])
-    render json: { response_type: "in_channel" }
+    render json: { response_type: "in_channel", text: "Thanks!" }
+  end
+
+  def destroy 
+    @invitation = Invitation.where(slack_user_id: params[:user_id]).order("created_at DESC").first
+    if @invitation
+      @invitation.destroy
+    end
   end
 
   def index 
@@ -15,6 +22,9 @@ after_action :cors_set_access_control_headers, only: :index
     end
   end
 
+  def help 
+    render json: { response_type: "in_channel", text: "Enter a restaurant name and time you plan to have lunch, e.g. `\lunch SuperRico at 12:30`. Your intention to go there will be publicly announced on https://devlunch.herokuapp.com. Anyone who is part of this Slack will be able to DM you to see if there's space at your table. If you entered something by mistake, just `\lunch cancel`."}
+  end
   private 
 
   def cors_set_access_control_headers

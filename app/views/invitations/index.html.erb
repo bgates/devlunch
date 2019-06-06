@@ -14,17 +14,45 @@ invitations.forEach(invite => {
 });
 </script>
 <% end %>
-<div class="container">
-  <h1>Lunch with Developers</h1>
-  <div id="map"></div>
-  <div>
-    <h2>What</h2>
-    <p>The map shows members of the Orlando Developers community who have said where they are having lunch today.</p>
-    <h2>Why</h2>
-    <p>It would be nice to get to know some devs in a casual environment. Meetups are too big to get to know anyone well, and post-Meetup drinks are too late. With lunch, you can meet people over food, so if you have nothing to say you can fall back on chewing.</p>
-    <h2>How</h2>
-    <p>Each pin on the map will show the ODev Slack username of a person who's announced availability to meet for lunch today. If you click on a username, Slack will open to a private message between you and that person.</p>
-    <p>If you want to get your own pin on the map, log into ODev Slack and use the command `/lunch`.</p>
-  </div>
-  <a href="https://github.com/bgates/devlunch"><%= image_tag 'github.png' %></a>
+<h1>Lunch with Developers</h1>
+<div class="pc-tab">
+<input checked="checked" id="tab1" type="radio" name="pct" />
+<input id="tab2" type="radio" name="pct" />
+<input id="tab3" type="radio" name="pct" />
+  <nav>
+    <ul>
+      <li class="tab1">
+        <label for="tab1">List</label>
+      </li>
+      <li class="tab2">
+        <label for="tab2">Map</label>
+      </li>
+      <li class="tab3">
+        <label for="tab3">About</label>
+      </li>
+    </ul>
+  </nav>
+  <section>
+    <div class="tab1">
+      <h2>First</h2>
+      <ul>
+      <% @invitations.map do |invitation| %>
+        <li><%= link_to invitation.userName, invitation.link %> is going to <%= invite.where %> at <%= invite.time %>
+      <% end %>
+      </ul>
+    </div>
+    <div class="tab2">
+      <div id="map"></div>
+    </div>
+    <div class="tab3">
+      <h2>What</h2>
+      <p>The map shows members of the Orlando Developers community who have said where they are having lunch today.</p>
+      <h2>Why</h2>
+      <p>It would be nice to get to know some devs in a casual environment. Meetups are too big to get to know anyone well, and post-Meetup drinks are too late. With lunch, you can meet people over food, so if you have nothing to say you can fall back on chewing.</p>
+      <h2>How</h2>
+      <p>Each pin on the map will show the ODev Slack username of a person who's announced availability to meet for lunch today. If you click on a username, Slack will open to a private message between you and that person.</p>
+      <p>If you want to get your own pin on the map, log into ODev Slack and use the command `/lunch`.</p>
+      </div>
+  </section>
 </div>
+<a href="https://github.com/bgates/devlunch"><%= image_tag 'github.png' %></a>
