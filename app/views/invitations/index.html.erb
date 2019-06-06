@@ -37,7 +37,7 @@ invitations.forEach(invite => {
       <h2>First</h2>
       <ul>
       <% @invitations.map do |invitation| %>
-        <li><%= link_to invitation.userName, invitation.link %> is going to <%= invite.where %> at <%= invite.time %>
+        <li><%= link_to invitation.user_name, invitation.link %> is going to <%= invite.where %> at <%= invite.time %>
       <% end %>
       </ul>
     </div>
