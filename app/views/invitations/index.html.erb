@@ -22,10 +22,10 @@ invitations.forEach(invite => {
   <nav>
     <ul>
       <li class="tab1">
-        <label for="tab1">List</label>
+        <label for="tab1">Map</label>
       </li>
       <li class="tab2">
-        <label for="tab2">Map</label>
+        <label for="tab2">List</label>
       </li>
       <li class="tab3">
         <label for="tab3">About</label>
@@ -34,15 +34,15 @@ invitations.forEach(invite => {
   </nav>
   <section>
     <div class="tab1">
-      <h2>First</h2>
+      <div id="map"></div>
+    </div>
+    <div class="tab2">
+      <h2>List</h2>
       <ul>
       <% @invitations.map do |invitation| %>
         <li><%= link_to invitation.user_name, invitation.link %> is going to <%= invitation.where %> at <%= invitation.time %>
       <% end %>
       </ul>
-    </div>
-    <div class="tab2">
-      <div id="map"></div>
     </div>
     <div class="tab3">
       <h2>What</h2>

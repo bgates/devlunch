@@ -57,6 +57,7 @@ h1 {
   padding: 0;
 }
 .pc-tab nav li label {
+  font-size: 3rem;
   font-family: "Raleway";
   float: left;
   padding: 15px 25px;
